@@ -11,10 +11,12 @@ import (
 )
 
 type Config struct {
-	Host  string
-	Theme string
-	Title string
-	Port  uint16
+	Host      string
+	Theme     string
+	Title     string
+	AuthToken string
+	XApiKey   string
+	Port      uint16
 }
 
 var (
@@ -43,10 +45,12 @@ func config() (*Config, error) {
 		return nil, err
 	} else {
 		return &Config{
-			Host:  os.Getenv("HOST"),
-			Theme: os.Getenv("THEME"),
-			Title: os.Getenv("TITLE"),
-			Port:  uint16(port),
+			Host:       os.Getenv("HOST"),
+			Theme:      os.Getenv("THEME"),
+			Title:      os.Getenv("TITLE"),
+			AuthToken: os.Getenv("AUTH_TOKEN"),
+			XApiKey:    os.Getenv("X_API_KEY"),
+			Port:       uint16(port),
 		}, nil
 	}
 }

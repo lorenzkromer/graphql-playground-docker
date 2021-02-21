@@ -550,8 +550,13 @@
         root.classList.add('playgroundIn');
 
         GraphQLPlayground.init(root, {
-            endpoint: "{{ .Host }}",
+            endpoint: '{{ .Host }}',
+            headers: {
+                'Authorization': 'Bearer {{ .AuthToken }}',
+                'X-API-KEY': '{{ .XApiKey }}'
+            },
             settings: {
+                'editor.reuseHeaders': true,
                 'editor.theme': '{{ .Theme }}'
             }
         })

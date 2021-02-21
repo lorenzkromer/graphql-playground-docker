@@ -9,6 +9,8 @@ ENV HOST http://localhost:9000/graphql
 ENV TITLE "GraphQL Playground"
 ENV PORT 8080
 ENV THEME dark
+ENV AUTH_TOKEN ""
+ENV X_API_KEY ""
 
 WORKDIR /app
 COPY --from=builder /app/graphpg .
