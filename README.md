@@ -16,3 +16,9 @@ Property to customize title. Default: "GraphQL Playground"
 
 ### PORT
 The GraphQL Playground serving port. Default: 8080
+
+### AUTH_TOKEN
+Basic Authorization header. Results in `Bearer <YOUR_AUTH_TOKEN>`. Default: ""
+
+### X_API_KEY
+Custom API Key. Default: ""
