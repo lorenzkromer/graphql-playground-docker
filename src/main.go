@@ -18,7 +18,7 @@ type Config struct {
 }
 
 var (
-	tpl = template.Must(template.New("index.tmpl").ParseFiles(path.Join("src", "index.tmpl")))
+	tpl = template.Must(template.New("index.html").ParseFiles(path.Join("src", "index.html")))
 )
 
 func main() {
@@ -27,11 +27,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fs := http.FileServer(http.Dir(path.Join("src", "static")))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if err := tpl.ExecuteTemplate(w, "index.tmpl", cfg); err != nil {
+		if err := tpl.ExecuteTemplate(w, "index.html", cfg); err != nil {
 			log.Fatal(err)
 		}
 	})

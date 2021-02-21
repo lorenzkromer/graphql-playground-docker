@@ -12,7 +12,6 @@ ENV THEME dark
 
 WORKDIR /app
 COPY --from=builder /app/graphpg .
-COPY --from=builder /app/static src/static
-COPY --from=builder /app/index.tmpl src/index.tmpl
+COPY --from=builder /app/index.html src/index.html
 EXPOSE 8080
 ENTRYPOINT  ["./graphpg"]
